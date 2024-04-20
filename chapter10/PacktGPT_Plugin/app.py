@@ -24,7 +24,7 @@ model = "gpt-3.5-turbo-0301"
 
 # 일래스틱 클라우드에 접속
 def es_connect(cid, user, passwd):
-  es = Elasticsearch(cloud_id=cid, http_auth=(user, passwd))
+  es = Elasticsearch(cloud_id=cid, basic_auth=(user, passwd))
   return es
 
 # 일래스틱서치 인덱스를 검색하고 결과 본문과 URL 반환
@@ -61,12 +61,15 @@ def ESSearch(query_text):
   }
 
   fields = ["title", "body_content", "url"]
-  index = 'search-elastic-doc'
+  index = 'search-packt-cdl-source'
   resp = es.search(index=index,
                    query=query,
                    fields=fields,
                    size=10,
                    source=False)
+
+  if not resp['hits']['hits']:
+    return "No results found."
 
   body = resp['hits']['hits'][0]['fields']['body_content'][0]
   url = resp['hits']['hits'][0]['fields']['url'][0]
@@ -167,7 +170,7 @@ async def openapi_spec():
 
 def main():
   port = int(os.environ.get("PORT", 5001))
-  app.run(debug=True, host="0.0.0.0", port=port)
+  app.run(debug=True, host="127.0.0.1", port=port)
 
 
 if __name__ == "__main__":
