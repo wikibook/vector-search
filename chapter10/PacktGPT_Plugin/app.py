@@ -31,8 +31,6 @@ def es_connect(cid, user, passwd):
 
 # 일래스틱서치 인덱스를 검색하고 결과 본문과 URL 반환
 def ESSearch(query_text):
-    print(query_text)
-
     cloud_url = os.environ['cloud_url']
     cid = os.environ['cloud_id']
     cp = os.environ['cloud_pass']
@@ -75,19 +73,6 @@ def ESSearch(query_text):
     body = resp['hits']['hits'][0]['fields']['body_content'][0]
     url = resp['hits']['hits'][0]['fields']['url'][0]
 
-    # es_config = ElasticsearchDBConfig(
-    #   es_url=cloud_url,
-    #   basic_auth=(cu, cp)
-    # )
-    # config = CustomAppConfig(
-    #   embedding_fn=EmbeddingFunctions.OPENAI,
-    #   provider=Providers.OPENAI,
-    #   db_type=VectorDatabases.ELASTICSEARCH,
-    #   es_config=es_config,
-    # )
-
-    # es_app = CustomApp(config)
-
     print(len(resp['hits']['hits']))
 
     elastic_bot = App()
@@ -96,10 +81,7 @@ def ESSearch(query_text):
     for hit in resp['hits']['hits']:
         for url in hit['fields']['url']:
             print(url)
-            # es_app.add(url)
             elastic_bot.add(url)
-
-    # print(es_app.query("Give me the latest documentation on " + query_text))
 
     return elastic_bot.query("What can you tell me about " + query_text)
 
