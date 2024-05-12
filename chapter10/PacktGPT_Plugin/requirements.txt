@@ -3,3 +3,6 @@ embedchain==0.1.103
 openai==1.28.1
 quart==0.19.5
 quart-cors==0.7.0
+numpy==1.26.4
+matplotlib==3.8.4
+seaborn==0.13.2
