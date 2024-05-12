@@ -1,7 +1,3 @@
-import json
-import requests
-import urllib.parse
-
 import quart
 import quart_cors
 from quart import request
@@ -11,16 +7,13 @@ import openai
 from elasticsearch import Elasticsearch
 
 from embedchain import App
-from embedchain import CustomApp
-from embedchain.config import CustomAppConfig, ElasticsearchDBConfig
-from embedchain.models import Providers, EmbeddingFunctions, VectorDatabases
 
 app = quart_cors.cors(quart.Quart(__name__), allow_origin="*")
 
 openai.api_key = os.environ['openai_api']
 os.environ["OPENAI_API_KEY"] = openai.api_key
 
-model = "gpt-3.5-turbo-0301"
+model = "gpt-3.5-turbo"
 
 
 # 일래스틱 클라우드에 접속
@@ -60,7 +53,7 @@ def ESSearch(query_text):
     }
 
     fields = ["title", "body_content", "url"]
-    index = 'search-packt-cdl-source'
+    index = 'search-wikibook-cdl-source'
     resp = es.search(index=index,
                      query=query,
                      fields=fields,
