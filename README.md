@@ -19,10 +19,6 @@
 * 벡터 공간 시각화하고 Elastic과 Search.Next 탐구
 * Streamlit을 사용한 RAG 강화 애플리케이션 구현
 
-<a href="https://wikibook.co.kr/vector-search/"><img src="cover.jpg" 
-alt="https://wikibook.co.kr/" border="5" /></a>
-
-
 ## 지침
 모든 코드는 폴더에 정리되어 있습니다.
 
