@@ -1,6 +1,6 @@
 # 엘라스틱을 활용한 벡터 검색 실무 가이드
 
-<a href="https://wikibook.co.kr/vector-search/"><img src="https://wikibook.co.kr/images/cover/s/9791158395223.jpg" alt="엘라스틱서치를 활용한 벡터 검색 실무 가이드" height="256px" align="right"></a>
+<a href="https://wikibook.co.kr/vector-search/"><img src="cover.jpg" alt="엘라스틱서치를 활용한 벡터 검색 실무 가이드" height="256px" align="right"></a>
 
 여기는 [엘라스틱을 활용한 벡터 검색 실무 가이드](https://wikibook.co.kr/vector-search/) 에 대한 코드 저장소 입니다. 
 
@@ -19,7 +19,7 @@
 * 벡터 공간 시각화하고 Elastic과 Search.Next 탐구
 * Streamlit을 사용한 RAG 강화 애플리케이션 구현
 
-<a href="https://wikibook.co.kr/vector-search/"><img src="https://wikibook.co.kr/images/cover/l/9791158395223.jpg" 
+<a href="https://wikibook.co.kr/vector-search/"><img src="cover.jpg" 
 alt="https://wikibook.co.kr/" border="5" /></a>
 
 
